@@ -1,52 +1,7 @@
-# tema-1-orzatagabriel5
-Orzata Gabriel-Nicusor 323CB
-Tema 1 - Libro Data
+# Libro Data
 
-Pentru rezolvarea temei am creeat cate un fisier pentru fiecare tip de clasa ce trebuie construita
-si interfata IPublishingArtifact care este implementata de carte Book, EditoarialGroup si
-PublishingBrand. Atat citirea datelor din fisierele de tip .in, cat si metodele de tip get si
-testarea acestora sunt facute intr-o clasa principala Main ce contine metoda initialize in plus
-fata de cele cerute in cerinta temei.
+I created a simulation of a online library where Publishing Retailers can store and publish their books.
 
-Clasa Main:
-Pentru inceput am definit ArrayList-uri de tipul fiecarei clasa pentru a stoca datele citite.
-Pe langa acestea am definit si HashMap-uri pentru a retine relatiile de tipul books-authors,
-publishing-retailers-countries, etc.
+First I read the detailes of a book and other instances of its class like authors. I use HashMaps to store matches betwen authors and books or to store every book of a Publishing Brand, Editorial Group or Publishing Retailer and than I store everything in the corespondent classes.
 
-metoda initialize:
-
-    Pentru fiecare clasa care contine un vector de alta clasa
-    (de exemplu clasa Book care are un vector de tipul Author), citesc mai intai clasa atribut
-    pentru a putea stoca in clasa principala instantele initializate anterior.
-metoda getBooksForPublishingRetailerID:
-
-    Parcurg lista de publishingRetailers pana cand gasesc Retailerul cu ID-ul cerut,
-    apoi parcurg si fiecare obiect de tipul IpublishingArtifact verificand daca este de tipul
-    Book, EditorialGroup sau PublishingBrand. Pentru tipul Book verific daca aceasta exista
-    deja in lista de carti ce urmeaza sa fie returnata ca output, iar pentru EditorialGroup
-    si PublishingBrand parcurg lista de carti a acestora si fac acelasi lucru.
-metoda getLanguagesForPublishingRetailerID:
-
-    Gasesc Retailerul cu ID-ul dat si apoi verific in ce limba sunt scrise toate cartile
-    acestuia.
-    Folosesc getBooksForPublishingRetailer pentru a afla toate cartile continute in Retailer.
-metoda getCountriesForBookID:
-
-    Caut cartea daca ca paramentru in fiecare publishingRetailer si implicit in fiecare
-    EditorialGroup si PublishingBrand al acestora si de fiecare data cand o gasesc verific
-    in ce tara se afla Retailerul si o adaug in lista de tari returnata de metoda, daca nu
-    exista deja.
-metoda getCommonBooksForRetailerIDs:
-
-    Folosesc metoda getBooksForPublishingRetailerID si fac intersectia acestora.
-metoda getAllBooksForRetailerIDs:
-
-    Folosesc metoda getBooksForPublishingRetailerID si fac reuniunea acestora.
-
-
-Metoda publish:
-
-    In fiecare dintre clasele care implementeaza interfata IPublishingArtifacts printez
-    la output in felul specific acestora. Cand apelez metoda pentru un publishingArtifact
-    se va printa in functie de ce instaceoff este artefactul deoarece interfata este implementata
-    de cele 3 clase.
+A book can be published by a Editorial Group, a Publishing Brand or by the author himself. Every class of those three implements the same interface that contains a publish method which writes a xml file with all the details of the book, Publishing Brand or Editorial Group. That method can be ran by every Publishing Retailer to upload a new book on the online library(supposing that the xml file is passed on the website database).
